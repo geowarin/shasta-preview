@@ -1,10 +1,15 @@
 import { createAction } from 'tahoe';
-import { Schema } from 'normalizr';
+import { Schema, valuesOf } from 'normalizr';
 
-const joke = new Schema('chuck-fact');
+const response = new Schema('response');
+const joke = new Schema('jokes');
+
+response.define({
+  value: joke
+});
 
 export const fact = createAction({
   endpoint: () => `http://api.icndb.com/jokes/random`,
   method: 'GET',
-  model: joke
+  model: response
 });

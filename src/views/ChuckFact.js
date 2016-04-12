@@ -4,14 +4,12 @@ import actions from "../core/actions";
 import DataComponent from "shasta-data-view";
 
 @connect({
-  joke: 'api.subsets.joke'
+  jokes: 'api.entities.jokes'
 })
 export default class ChuckFact extends DataComponent {
 
   resolveData () {
-    actions.chuck.fact({
-      subset: 'joke'
-    });
+    actions.chuck.fact();
   }
 
   renderLoader () {
@@ -22,13 +20,15 @@ export default class ChuckFact extends DataComponent {
     )
   }
 
-  renderData ({joke}) {
-    console.log(joke.getIn(['value', 'joke']));
+  renderData ({jokes}) {
+    const jokesEl = jokes.valueSeq().map((joke, id) => {
+      return <div key={id}>{joke.get('joke')}</div>
+    });
 
     return <div>
       <h2>Chuck Norris Fact</h2>
 
-      <p>{joke.getIn(['value', 'joke'])}</p>
+      {jokesEl}
     </div>
   }
 

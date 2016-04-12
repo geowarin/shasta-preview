@@ -7,7 +7,7 @@
     "build": "nwb build",
     "clean": "nwb clean",
     "start": "nwb serve --fallback",
-    "test:watch": "nwb test --server"
+    "test": "mocha"
   },
   "dependencies": {
     "normalizr": "^2.0.1",
@@ -19,7 +19,9 @@
     "tahoe": "shastajs/tahoe#new"
   },
   "devDependencies": {
+    "expect": "^1.16.0",
     "glob-loader": "contra/glob-loader",
+    "mocha": "^2.4.5",
     "nwb": "0.9.x"
   },
   "author": "",
