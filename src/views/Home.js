@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'shasta';
 
 import Counter from './Counter';
+import ChuckFact from './ChuckFact';
 
 export default class Home extends Component {
 
@@ -10,7 +11,8 @@ export default class Home extends Component {
       <div>
         <h1>Home</h1>
 
-        <Counter />
+        { /* <Counter /> */ }
+        <ChuckFact />
       </div>
     )
   }
