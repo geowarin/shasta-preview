@@ -1,0 +1,26 @@
+{
+  "name": "shasta-preview",
+  "version": "1.0.0",
+  "description": "shasta-preview",
+  "private": true,
+  "scripts": {
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "start": "nwb serve --fallback",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "shasta": "shastajs/shasta",
+    "shasta-data-view": "shastajs/shasta-data-view",
+    "shasta-router": "shastajs/shasta-router",
+    "tahoe": "shastajs/tahoe#new"
+  },
+  "devDependencies": {
+    "glob-loader": "contra/glob-loader",
+    "nwb": "0.9.x"
+  },
+  "author": "",
+  "license": "MIT"
+}
