@@ -8,8 +8,8 @@ response.define({
   value: joke
 });
 
-export const fact = createAction({
-  endpoint: () => `http://api.icndb.com/jokes/random`,
+export const getRandomFact = createAction({
+  endpoint: () => `http://api.icndb.com/jokes/random?exclude=[explicit]`,
   method: 'GET',
   model: response
 });

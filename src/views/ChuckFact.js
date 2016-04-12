@@ -3,13 +3,20 @@ import {connect} from "shasta";
 import actions from "../core/actions";
 import DataComponent from "shasta-data-view";
 
+const getFirstJoke = (store) => {
+  const jokes = store.getIn(['api', 'entities', 'jokes']);
+  if (jokes) {
+    return jokes.valueSeq().first();
+  }
+};
+
 @connect({
-  jokes: 'api.entities.jokes'
+  joke: getFirstJoke
 })
 export default class ChuckFact extends DataComponent {
 
   resolveData () {
-    actions.chuck.fact();
+    actions.chuck.getRandomFact();
   }
 
   renderLoader () {
@@ -20,15 +27,11 @@ export default class ChuckFact extends DataComponent {
     )
   }
 
-  renderData ({jokes}) {
-    const jokesEl = jokes.valueSeq().map((joke, id) => {
-      return <div key={id}>{joke.get('joke')}</div>
-    });
-
+  renderData ({joke}) {
     return <div>
       <h2>Chuck Norris Fact</h2>
 
-      {jokesEl}
+      {joke.get('joke')}
     </div>
   }
 
