@@ -3,8 +3,7 @@ var path = require('path');
 module.exports = {
   type: 'react-app',
   babel: {
-    stage: 0,
-    optional: ['runtime']
+    stage: 0
   },
   webpack: {
     extra: {
